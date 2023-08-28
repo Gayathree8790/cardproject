@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&family=REM:wght@300&family=Roboto:wght@300&display=swap');
+
+/* ||RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ||GENERAL STYLES */
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 2rem 'Preahvihear', sans-serif;
+    min-height: 100vh;
+    background-color: bisque;
+    background-image: radial-gradient(rgb(255, 211, 196), rgb(255, 228, 196));
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    position: sticky;
+    background-color: rgb(248, 172, 170);
+    color: #000;
+    text-align: center;
+}
+
+
+header {
+    top: 0;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+footer {
+    bottom: 0;
+}
+
+/*|| PROFILE CARD  */
+.card {
+    scroll-margin-top: 15rem;
+    /*to avoid contents from hiding underneath*/
+    width: min(100%, 375px);
+    background-color: rgb(243, 200, 180);
+    border: 2px solid black;
+    border-radius: 2rem ;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card figure{
+    display: flex;
+    flex-flow: column nowrap;/*short hand property to incl flex direction and flex flow*/
+}
+
+.card img{
+    border: 3px double black;
+    border-radius: 10%;/*for circular put radius to 50%*/
+}
+
+.card figcaption{
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 0.5rem; 
+    text-align: center;
+}
+
+/*||SMALL*/
+@media screen and (min-width:576px){
+    main{
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 1rem;
+    }
+
+    .card{
+        width: min(100%,300px);
+    }
+
+    .card :nth-last-child(){
+        order: -1;
+    }
+}
+
+/*||MEDIUM*/
+@media screen and (min-width:768px){
+    header nav{/*simply using nav isnt working */
+        display: none; /*in ipad screens all cards wrap around in 1 page so no need of flex item*/
+    } 
+
+    .card{
+        width: min(100%,300px);
+    }
+
+    .card figure{
+        flex-flow:column-reverse;/*this reversal results in the names on top of figure*/
+    }
+
+    .card figcaption{
+        margin: 0.1rem 0;
+    }
+
+    .card p{
+        margin-top:1rem ;
+    }
+}
+
+/*||LARGE*/
+@media screen and (min-width:992px){
+    .card{
+        width: min(100%,375px);
+    }
+}
+
+
+/*||XL*/
+@media screen and (min-width:1200px){
+    .card{
+        width: min(calc(33%-1rem,400px));
+    }
+}
+
+/*||MOBILE LANDSCAPE*/
+@media screen and (max-height:425px) and (min-aspect-ratio:7/4){
+    h1{
+        font-size: 1.5rem;
+    }
+
+    header nav{
+        display:none;
+    }
+
+    main{
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items:stretch;
+    }
+
+    .card{
+        width: min(calc(33%-0.1rem));
+    }
+
+    .card figcaption,.card p,footer{
+        font-size: 1rem;
+    }
+
+}
+nav {
+    background-color: rgb(255, 211, 196);
+    padding: 1rem;
+    border-bottom: 2px dotted black;
+    border-top: 2px dotted black;
+    font-weight: bold;
+    display: flex;
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+nav a,
+nav a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+    /* color:#cb2626 ; */
+    color: hsla(0, 0%, 0%, 0.4);
+    /*hue saturation lightness alpha - alpha --> transparency*/
+
+}
