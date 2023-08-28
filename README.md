@@ -1,1 +1,1 @@
-contains hobby projects developed during the initial learning phase
+Hobby projects using HTML and CSS.
